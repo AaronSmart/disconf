@@ -2,29 +2,29 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-    <!-- 配置FreeMarkerConfigurer -->
-    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath" value="/WEB-INF/freemarker/"/>
-        <property name="freemarkerSettings">
-            <props>
-                <prop key="template_update_delay">0</prop>
-            </props>
-        </property>
-    </bean>
+<!--    &lt;!&ndash; 配置FreeMarkerConfigurer &ndash;&gt;-->
+<!--    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
+<!--        <property name="templateLoaderPath" value="/WEB-INF/freemarker/"/>-->
+<!--        <property name="freemarkerSettings">-->
+<!--            <props>-->
+<!--                <prop key="template_update_delay">0</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
 
-    <!--
-      View resolvers can also be configured with ResourceBundles or XML files. If you need
-      different view resolving based on Locale, you have to use the resource bundle resolver.
-    -->
-    <!-- freemarker视图解析器 -->
-    <bean id="viewResolverFtl" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <property name="suffix" value=".ftl"/>
-        <property name="order" value="0"/>
-        <property name="contentType" value="text/html;charset=UTF-8"/>
-        <!-- 此变量值为pageContext.request, 页面使用方法：rc.contextPath -->
-        <property name="requestContextAttribute" value="rc"/>
-        <property name="cache" value="false"/>
-    </bean>
+<!--    &lt;!&ndash;-->
+<!--      View resolvers can also be configured with ResourceBundles or XML files. If you need-->
+<!--      different view resolving based on Locale, you have to use the resource bundle resolver.-->
+<!--    &ndash;&gt;-->
+<!--    &lt;!&ndash; freemarker视图解析器 &ndash;&gt;-->
+<!--    <bean id="viewResolverFtl" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
+<!--        <property name="suffix" value=".ftl"/>-->
+<!--        <property name="order" value="0"/>-->
+<!--        <property name="contentType" value="text/html;charset=UTF-8"/>-->
+<!--        &lt;!&ndash; 此变量值为pageContext.request, 页面使用方法：rc.contextPath &ndash;&gt;-->
+<!--        <property name="requestContextAttribute" value="rc"/>-->
+<!--        <property name="cache" value="false"/>-->
+<!--    </bean>-->
 
     <!-- Convenient subclass of UrlBasedViewResolver that supports InternalResourceView
         (i.e. Servlets and JSPs) and subclasses such as JstlView. -->

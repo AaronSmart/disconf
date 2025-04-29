@@ -2,10 +2,7 @@ package com.baidu.unbiz.common.genericdao.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.Type;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -805,7 +802,7 @@ public abstract class GenericDao<KEY extends Serializable, ENTITY extends BaseOb
         // 执行操作
         int rowCount = this.jdbcTemplate.update(new PreparedStatementCreator() {
             public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
-                PreparedStatement ps = connection.prepareStatement(sql);
+                PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
                 int index = 1;
                 for (Object param : params) {
                     ps.setObject(index++, param);
@@ -837,7 +834,7 @@ public abstract class GenericDao<KEY extends Serializable, ENTITY extends BaseOb
         // 执行操作
         int rowCount = this.jdbcTemplate.update(new PreparedStatementCreator() {
             public PreparedStatement createPreparedStatement(Connection connection) throws SQLException {
-                PreparedStatement ps = connection.prepareStatement(sql);
+                PreparedStatement ps = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
                 int index = 1;
                 for (Object param : params) {
                     ps.setObject(index++, param);
